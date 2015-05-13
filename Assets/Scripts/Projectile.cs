@@ -14,5 +14,9 @@ public class Projectile : MonoBehaviour {
 		if(collision.gameObject.tag == "Ground" ){
 			Destroy(gameObject);
 		}
-	}
+        if (collision.gameObject.tag == "Virus") {
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<Virus>().damage();
+        }
+    }
 }
