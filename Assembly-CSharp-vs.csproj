@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\Shooter.cs" />
+     <Compile Include="Assets\Scripts\TextChange.cs" />
      <Compile Include="Assets\Scripts\VerticalController.cs" />
      <Compile Include="Assets\Scripts\Virus.cs" />
      <Compile Include="Assets\Scripts\VirusSpawner.cs" />
