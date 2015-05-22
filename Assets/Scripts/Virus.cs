@@ -5,6 +5,7 @@ public class Virus : MonoBehaviour {
     private int health;
     private int bulletDamage;
     private int speed;
+    private Antigen antigen;
     private Vector3 offset;
     private float duplicationTime;
     public GameObject target;
@@ -15,6 +16,8 @@ public class Virus : MonoBehaviour {
         speed = 5;
         duplicationTime = 5f;
         offset = new Vector3(3f, 0f, 3f);
+        antigen = (Antigen) Random.Range(0, 3);
+        gameObject.tag = "Virus " + ((int)antigen).ToString();
     }
 
     // Update is called once per frame
