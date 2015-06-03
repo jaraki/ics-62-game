@@ -15,14 +15,14 @@ public class Game : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate() {
         switch (Shooter.antigen) {
-            case Antigen.ZERO:
-                antigenText.text = "ZERO";
+            case Antigen.BLUE:
+                antigenText.text = "BLUE";
                 break;
-            case Antigen.ONE:
-                antigenText.text = "ONE";
+            case Antigen.GREEN:
+                antigenText.text = "GREEN";
                 break;
-            case Antigen.TWO:
-                antigenText.text = "TWO";
+            case Antigen.PURPLE:
+                antigenText.text = "PURPLE";
                 break;
         }
         if (gameIsOver()) {
@@ -31,6 +31,6 @@ public class Game : MonoBehaviour {
         }
     }
     public bool gameIsOver() {
-        return (numViruses == 0 && Time.timeSinceLevelLoad > 0f)|| numViruses >= numAllowed;
+        return false;
     }
 }

@@ -2,14 +2,24 @@
 using System.Collections;
 
 public class RedBloodCell : MonoBehaviour {
-	public int speed;
-	private int x;
-	private int y;
-	private int z;
-	public GameObject target;
+    private int x, y, z;
+    private float timer = 2f;
 
-	// Use this for initialization
-	void Start () {
+    private Transform rotater;
+
+    private void Awake() {
+        rotater = transform.GetChild(0);
+    }
+
+    public void Position(BloodVessel bloodVessel, float curveRotation, float ringRotation) {
+        transform.SetParent(bloodVessel.transform, false);
+        transform.localRotation = Quaternion.Euler(0f, 0f, -curveRotation);
+        rotater.localPosition = new Vector3(0f, bloodVessel.CurveRadius);
+        rotater.localRotation = Quaternion.Euler(ringRotation, 0f, 0f);
+    }
+
+    // Use this for initialization
+    void Start () {
 		x = (int)(Random.value * 180);
 		y = (int)(Random.value * 180);
 		z = (int)(Random.value * 180);
@@ -18,7 +28,10 @@ public class RedBloodCell : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        timer -= Time.deltaTime;
+        if (timer < 0f) {
+            Destroy(gameObject);
+        }
 		transform.Rotate (x * Time.deltaTime, y * Time.deltaTime, z * Time.deltaTime);
-		transform.position += Vector3.forward * speed * Time.deltaTime;
 	}
 }

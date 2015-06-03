@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+public abstract class RedBloodCellGenerator : MonoBehaviour {
 
-public class RBCSpawner : MonoBehaviour {
+    public abstract void GenerateItems(BloodVessel bloodVessel);
+}
 
-		public Rigidbody rbc;
-		private float spawnTime;
-		// Use this for initialization
-		void Start() {
-			spawnTime = 0f;
-		}
-		
-		// Update is called once per frame
-		void Update() {
-			int randX = Random.Range(-483, 483);
-			int randY = Random.Range(0, 100);
-			Vector3 v = new Vector3(randX, randY, -495);
-			spawnTime -= Time.deltaTime;
-			if (spawnTime < 0f) {
-				Instantiate(rbc, v, new Quaternion());
-				spawnTime = 5f;
-			}
-		}
-	}
+public class RBCSpawner : RedBloodCellGenerator {
+    public RedBloodCell rbcPrefab;
+
+    public override void GenerateItems(BloodVessel bloodVessel) {
+        float start = (Random.Range(0, bloodVessel.pipeSegmentCount) + 0.5f);
+        float direction = Random.value < 0.5f ? 1f : -1f;
+
+        float angleStep = bloodVessel.CurveAngle / bloodVessel.CurveSegmentCount;
+        for (int i = 0; i < bloodVessel.CurveSegmentCount/2; i++) {
+            RedBloodCell rbc = Instantiate<RedBloodCell>(rbcPrefab);
+            float pipeRotation =
+                (start + i * direction) *
+                360f / bloodVessel.pipeSegmentCount;
+            rbc.Position(bloodVessel, i * angleStep, pipeRotation);
+        }
+    }
+}
