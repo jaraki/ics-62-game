@@ -19,11 +19,11 @@ public class TextChange : MonoBehaviour {
 
 		}
 		if (insWin == 1) {
-			instruction.text = "Use the ARROW KEYS to move around the bloodstream. The MOUSE, when moved around, will control the camera.\n\nViruses have Antigens on them, which is the only way to determine what kind of a cell it is. Only by using Killer-T Cells of a matching Antigen can you destroy the viral pathogen.\n\nThe Q button can be pressed to shoot a Killer T-Cell with a particular antigen on it. The Killer T-Cell, if shot to a matching virus, will deactivate and destroy the pathogen. Pressing E will switch between the available Antigens.";
+			instruction.text = "Use the ARROW KEYS to rotate the bloodstream as you flow through it. The MOUSE, when moved around, will control the camera.\n\nViruses have Antigens on them, which is the only way to determine what kind of a cell it is. Only by using Killer-T Cells of a matching Antigen can you destroy the viral pathogen.\n\nThe Q button can be pressed to shoot a Killer T-Cell with a particular antigen on it. The Killer T-Cell, if shot to a matching virus, will deactivate and destroy the pathogen. Pressing E will switch between the available Antigens.";
 		}
 
 		if (insWin == 2) {
-			instruction.text = "TIPS:\n\nMake sure to shoot bullets that match antigens with the enemy, or they will have no effect!\n\nIf left alone, the Viruses will begin to infect other healthy cells and multiply, making your job harder and harder. Don’t let this happen!";
+			instruction.text = "TIPS:\n\nMake sure to shoot bullets that match color antigens with the enemy, or they will have no effect!\n\n";
 		}
 	}
 
